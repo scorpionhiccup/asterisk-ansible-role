@@ -1,0 +1,18 @@
+---
+- name: Asterisk Server Installation
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+  - name: Installing / Updating Asterisk on Debian systems
+    apt: >-
+      pkg=asterisk
+      state=latest
+    tags: asterisk
+    when: ansible_os_family == 'Debian'
+
+  - name: Installing / Updating Asterisk on RedHat systems
+    yum: >-
+      pkg=asterisk
+      state=latest
+    tags: asterisk
+    when: ansible_os_family == 'RedHat'
