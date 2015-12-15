@@ -3,3 +3,4 @@
 - include: apache-config.yml
 - include: php-mysql.yml
 - include: asterisk.yml
+- include: asterisk-config.yml
