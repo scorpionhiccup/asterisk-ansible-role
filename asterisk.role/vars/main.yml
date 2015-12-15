@@ -1,3 +1,4 @@
 ---
 # User name for the asterisk user
 user_asterisk: asterisk
+php_mysql_package: php5-mysql
