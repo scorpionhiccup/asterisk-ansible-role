@@ -1,0 +1,22 @@
+---
+  #Handlers for Apache2 Setup
+  - name: restart apache
+    service: name=apache2 enabled=yes state=restarted
+
+  #Handlers for MySQL
+  - name: restart mysql
+    service: name=mysql state=restarted
+
+  #Handlers for PHP-Mysql Setup
+  - name: restart php5-fpm
+    service: name=php5-fpm state=restarted
+
+  - name: restart nginx
+    service: name=nginx state=restarted
+  
+  # Handlers file for manipulating the asterisk role
+  - name: restart asterisk
+    service: name=asterisk state=restarted
+
+  - name: start asterisk
+    service: name=asterisk state=started

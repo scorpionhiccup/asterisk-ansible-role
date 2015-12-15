@@ -1,0 +1,40 @@
+---
+  - name: Install php5
+    apt: pkg=php5 state=latest update_cache=yes
+  
+  - name: Install PHP - MySQL dependencies (Debian)
+    apt:
+      name: "{{ php_mysql_package }}"
+      state: latest
+    with_items:
+      - libapache2-mod-php5
+      - mcrypt
+      - nginx
+      - php5-cli
+      - php5-common
+      - php5-curl
+      - php5-gd
+      - php5-fpm
+      - php5-intl
+      - php5-json
+      - php5-mcrypt
+      - php5-xcache
+    notify:
+      - restart php-fpm
+    when: ansible_os_family == 'Debian'
+
+  - name: Enable php5 Module
+    shell: a2enmod {{ item }}
+    notify: restart apache
+    with_items:
+      - php5
+
+  - name: Install/Update MySQL packages
+    apt: pkg={{ item }} state=latest
+    notify: restart mysql
+    with_items:
+      - mysql-server
+      - libapache2-mod-auth-mysql
+      - php5-mysql
+      - python-mysqldb
+      - mysql-server

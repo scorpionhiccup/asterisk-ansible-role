@@ -1,0 +1,5 @@
+---
+- include: apache.yml
+- include: apache-config.yml
+- include: php-mysql.yml
+- include: asterisk.yml

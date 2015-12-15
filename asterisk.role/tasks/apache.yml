@@ -1,0 +1,8 @@
+---
+  - name: Install Apache2 (Debian)
+    apt:
+      name: apache2
+      state: latest
+    notify:
+      - restart php-fpm
+    when: ansible_os_family == 'Debian'
