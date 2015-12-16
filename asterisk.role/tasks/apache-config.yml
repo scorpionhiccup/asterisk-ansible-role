@@ -16,12 +16,12 @@
 
   - name: Change default apache user
     sudo: yes
-    lineinfile: dest=/etc/apache2/envvars regexp=APACHE_RUN_USER line="export APACHE_RUN_USER=vagrant"
+    lineinfile: dest=/etc/apache2/envvars regexp=APACHE_RUN_USER line="export APACHE_RUN_USER={{user_asterisk}}"
 
   - name: Change default apache group
     sudo: yes
-    lineinfile: dest=/etc/apache2/envvars regexp=APACHE_RUN_GROUP line="export APACHE_RUN_GROUP=vagrant"
+    lineinfile: dest=/etc/apache2/envvars regexp=APACHE_RUN_GROUP line="export APACHE_RUN_GROUP={{group_asterisk}}"
 
   - name: Change lock file owner
     sudo: yes
-    file: path=/var/lock/apache2 owner=vagrant group=vagrant
+    file: path=/var/lock/apache2 owner={{user_asterisk}} group={{group_asterisk}}
