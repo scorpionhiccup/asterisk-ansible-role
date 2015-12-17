@@ -1,9 +1,4 @@
 ---
-  - name: Enable php5 mcrypt module
-    shell: php5enmod mcrypt
-    args:
-      creates: /etc/php5/cli/conf.d/20-mcrypt.ini
-
   - name: Enable Apache Modules
     shell: a2enmod {{ item }}
     notify: restart apache

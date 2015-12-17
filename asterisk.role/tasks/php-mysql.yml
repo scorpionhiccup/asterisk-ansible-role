@@ -1,11 +1,17 @@
 ---
   - name: Install php5
-    apt: pkg=php5 state=latest update_cache=yes
+    apt: pkg=php5 state=latest force=yes
   
+  - name: Enable php5 mcrypt module
+    shell: php5enmod mcrypt
+    args:
+      creates: /etc/php5/cli/conf.d/20-mcrypt.ini
+
   - name: Install PHP - MySQL dependencies (Debian)
     apt:
       name: "{{ php_mysql_package }}"
       state: latest
+      force: yes
     with_items:
       - libapache2-mod-php5
       - mcrypt
@@ -30,7 +36,7 @@
       - php5
 
   - name: Install/Update MySQL packages
-    apt: pkg={{ item }} state=latest
+    apt: pkg={{ item }} state=latest force=yes
     notify: restart mysql
     with_items:
       - mysql-server

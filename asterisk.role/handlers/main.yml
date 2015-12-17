@@ -8,7 +8,7 @@
     service: name=mysql state=restarted
 
   #Handlers for PHP-Mysql Setup
-  - name: restart php5-fpm
+  - name: restart php-fpm
     service: name=php5-fpm state=restarted
 
   - name: restart nginx

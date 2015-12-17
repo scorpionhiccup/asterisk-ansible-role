@@ -2,6 +2,7 @@
   - name: Installing / Updating Asterisk on Debian systems
     apt: >-
       pkg=asterisk
+      force=yes
       state=latest
     tags: asterisk
     when: ansible_os_family == 'Debian'

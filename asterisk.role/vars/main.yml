@@ -1,10 +1,10 @@
 ---
 # User name for the asterisk user
-user_asterisk: asterisk
+user_asterisk: ubuntu
 php_mysql_package: php5-mysql
 
 # Group to assign ownership of config and log files to
-group_asterisk: "{{ global_asterisk_group|default('asterisk') }}"
+group_asterisk: "{{ global_asterisk_group|default('ubuntu') }}"
 
 # asterisk configuration files directory
 dir_asterisk_config: "/etc/asterisk"
