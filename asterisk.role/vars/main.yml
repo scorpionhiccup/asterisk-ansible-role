@@ -8,4 +8,4 @@ group_asterisk: "{{ global_asterisk_group|default('ubuntu') }}"
 
 # asterisk configuration files directory
 dir_asterisk_config: "/etc/asterisk"
-dir_asterisk_log: "{{ global_log_dir|default('/var/log/') }}/asterisk"
+dir_asterisk_log: "{{ global_log_dir|default('/var/log') }}/asterisk"

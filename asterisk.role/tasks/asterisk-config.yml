@@ -3,7 +3,7 @@
     user: name='{{ user_asterisk }}' createhome=no
     tags: asterisk
     
-  # Add asterisk user to admin group
+  # Add asterisk user to {{ global_asterisk_group }} group
   - name: edit '{{ user_asterisk }}' group
     user: name='{{ user_asterisk }}' groups='{{ global_asterisk_group }}' force=yes append=yes
     when: global_asterisk_group is defined
@@ -26,7 +26,7 @@
     tags: asterisk
     
   # Create the log link for cdr-csv to quieten ERROR
-  - name: create cdr log file
+  - name: create cdr log file directory
     file: path='{{ dir_asterisk_log }}/cdr-csv/' state=directory
     tags: asterisk
     

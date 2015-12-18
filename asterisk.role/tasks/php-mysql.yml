@@ -1,6 +1,6 @@
 ---
   - name: Install php5
-    apt: pkg=php5 state=latest force=yes
+    apt: pkg=php5 state=latest force=yes install_recommends=yes
   
   - name: Enable php5 mcrypt module
     shell: php5enmod mcrypt
